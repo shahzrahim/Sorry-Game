@@ -19,7 +19,7 @@ Show us what you've got!
 
 Your app must:
 
-- Your game should have two pages: a landing page and a game page
+- Your game should be a **single page** app that includes: a landing page and a game page
 - Use only **jQuery** for DOM manipulation
 - Deploy your game online to both **CodePen** and **GitHub pages**
 - Include at least one **CSS transition** fired by a DOM event
@@ -52,7 +52,7 @@ If you're creating a two (or more)-player game, you MUST:
 **Bonus**
 
 - If this is a one-player game, design logic for winning & visually display which player won (why? not all games have one winner)
-- Include at least one animation using HTML Canvas or SVG 
+- Include at least one animation
 - Include a "Tutorial Section" of this landing page (why: instructions help think through the "UX" of your project)
 
 
