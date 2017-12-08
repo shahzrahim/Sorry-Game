@@ -1,0 +1,199 @@
+body {
+  text-align: center;
+}
+
+header {
+  border: 2px solid blue;
+  height: 100px;
+  background-color: lightgreen;
+  padding: 1vw 0;
+}
+
+.logo {
+  width: 25vw;
+  height: 15vw;
+}
+
+body {
+  /*background-color: green;*/
+}
+.gameSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10vw;
+}
+
+.flex-container {
+  position: absolute ;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: column;
+  border-collapse: collapse;
+
+}
+
+.row1 {
+  margin: 0 auto;
+  display: flex;
+  align-content: flex-start;
+}
+
+.column {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.row2 {
+  display: flex;
+  flex-direction: column;
+  /*order: 1;*/
+}
+
+.row3 {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  /*order: 1;*/
+}
+
+.row4 {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.circle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.flex-circle {
+  border: 1px solid black;
+  border-radius: 80%;
+  width   : 10vw;
+  height  : 10vw;
+}
+
+.small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle > :nth-child(2) {
+  width: 12vw;
+  height: 12vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#circleOne {
+  background-color: pink;
+}
+#circleTwo {
+  background-color: lightblue;
+}
+
+.piece {
+  border: 1px solid black;
+  border-radius: 80%;
+  width   : 2vw;
+  height  : 2vw;
+}
+
+.redPiece {
+  background-color: red;
+  position: absolute;
+  /*left: 11.25vw;*/
+  /*left: 0vw;*/
+  visibility: hidden;
+}
+/*
+#circleOne > :first-child {
+  position: absolute;
+  background-color: red;
+  display: none;
+}*/
+
+#mainPiece1 {
+  border: 1px solid black;
+  border-radius: 80%;
+  width   : 2vw;
+  height  : 2vw;
+  position: absolute;
+  background-color: red;
+  /*display: none;*/
+}
+
+.bluePiece {
+  background-color: blue;
+  position: absolute;
+  /*right: 11.25vw;*/
+  visibility: hidden;
+
+}
+
+#mainPiece2 {
+  border: 1px solid black;
+  border-radius: 80%;
+  width   : 2vw;
+  height  : 2vw;
+  position: absolute;
+  background-color: blue;
+  /*display: none;*/
+}
+
+
+.dice {
+  /*border: 1px solid black;*/
+  border-radius: 20%;
+  width   : 5vw;
+  height  : 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.dice img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+  /*background-color: black;*/
+
+
+.row4 {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+}
+
+
+/*.non-occ-square > :first-child, .non-occ-square > :nth-child(2) {
+  display: none;
+}
+
+.blue-occ-square > :nth-child(2) {
+  display: flex;
+}
+*/
+
+
+.flex-box {
+    width   : 8vw;
+    height  : 8vw;
+    border  : 1px solid black;
+    color   : black;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+

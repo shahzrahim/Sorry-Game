@@ -112,7 +112,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | GameBoard | H | 3hrs| hrs | hrs |
-| GameBoard Logic | H | 10hrs| hrs hrs |
+| GameBoard Logic | H | 10hrs| hrs | hrs |
 | Starting Box Logic| M | 2hrs| hrs | hrs |
 | Ending Box Logic| M | 1/2hrs| hrs | hrs |
 | Dice Animations | M | 10hrs| hrs | hrs |
