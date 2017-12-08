@@ -1,44 +1,51 @@
 $(document).ready(() => {
 
-  // class Players() {
-  //   constructor(player#, color, circle, currentPlayer) {
-  //     this.player = player#
-  //     this.color = color
-  //     this.circle = circle
-  //     this.currentPlayer = false;
-  //   }
-  // }
-  // class gameBoard() {
-  // constructor() {
+  class Player {
+    constructor(player, color, piece, currentPlayer) {
+      this.player = player
+      this.color = color
+      this.circle = circle
+      this.currentPlayer = false;
+    }
+
+
+  }
+
+  // class gameBoard {
+  //   constructor() {
 
   //   }
 
-  // let player1 = new Player(1',red','circleOne') ;
-  // let player2 = new Player(2,'blue','circleTwo');
   // }
 
+    // let player1 = new Player(1,redPiece, clickMainPiece1) ;
+    // let player2 = new Player(2,bluePiece, clickMainPiece2);
 
 
   let turns;
   let setBoard;
   let redPiece = $('#mainPiece1')
-  let clickRedPiece = $(redPiece).click(function() {
+  let clickMainPiece1 = $(redPiece).click(function() {
     console.log('this has been clicked');
     $('#mainPiece1').css('display','none');
     $('.redPiece').css('visibility', 'visible');
+    $('.redPiece').click(movePiece)
   });
   let bluePiece = $('#mainPiece2')
-  let clickBluePiece = $(bluePiece).click(function() {
+  let clickMainPiece2 = $(bluePiece).click(function() {
     console.log('this has been clicked');
     $('#mainPiece2').css('display','none');
-    $('.bluePiece').css('visibility', 'visible')
+    $('.bluePiece').css('visibility', 'visible');
+    $('.bluePiece').click(movePiece)
   });
   let clickDice = $('.dice').click(rollDice)
 
 
 
  const boxes = $('.flex-box');
- console.log(boxes)// why is this not console logging?
+ console.log(boxes)
+
+ // why is this not console logging?
 
   // function createBoard(){
   //   setBoard = Array.from(Array(24).keys());
@@ -56,28 +63,7 @@ $(document).ready(() => {
         return randomNumber;
       }
      }
-
-
-      // function() {
-      //     let sI = setInterval(function() {
-      //     let random = Math.floor(Math.random() * this.sides) + 1;
-      //     console.log(random)
-      //     // counter += 1
-      //     // if(counter == 3) {
-      //     //   clearInterval(sI); return currentRole(random)}
-      //     // },250)
-      //     // return sI;
-      //     }
-      //   }
-
-
-
-
-      let value = dice.roll();
-      console.log(value)
-    // if(dice.roll() === 6) {
-    //   rollSix();
-    // }
+     let value = dice.roll();
 
     if(value === 1) {
       $(".dice > img").attr("src","Images/Die_1.png");
@@ -96,6 +82,7 @@ $(document).ready(() => {
     }
     if(value === 6) {
       $(".dice > img").attr("src","Images/Die_6.png");
+
     }
 
   };
@@ -106,14 +93,20 @@ $(document).ready(() => {
   //   }
   // };
 
-  // function movePiece() {
-  //   if (clickedRedPiece) {
-  //     $(redPiece).css('display', 'none');
-  //   }
-  //   if (clickedBluePiece) {
-  //     $(bluePiece).css('display', 'visible' );
-  //   }
-  // };
+    redPosition = 0;
+    bluePosition = 0;
+  function movePiece(clickMainPiece) {
+    console.log('this has been clicked');
+
+    if (clickMainPiece1) {
+      redPosition += 11.25;
+      $('.redPiece').css('left',`${redPosition}vw`);
+    }
+    if (clickMainPiece2) {
+      bluePosition += 11.25;
+      $('.bluePiece').css('right',`${bluePosition}vw`);
+    }
+  };
 //
   // function turn() {};
 
@@ -132,6 +125,21 @@ $(document).ready(() => {
 //A method that rolls dice.
 //A method that ends turn.
 //A method to change turns between both players.
+
+      // function() {
+      //     let sI = setInterval(function() {
+      //     let random = Math.floor(Math.random() * this.sides) + 1;
+      //     console.log(random)
+      //     // counter += 1
+      //     // if(counter == 3) {
+      //     //   clearInterval(sI); return currentRole(random)}
+      //     // },250)
+      //     // return sI;
+      //     }
+      //   }
+
+
+
 
 
 
