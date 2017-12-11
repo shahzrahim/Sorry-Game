@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <meta charset="UTF-8">
   <title>Sorry! Board Game</title>
 </head>
 <body>
+  <audio loop="loop" autoplay="autoplay"></audio>
   <header>
-    <img src="Images/sorry.png" alt="" class='logo'>
+
+    <img src="Images/sorry.png" alt="" class='logo '>
+    <button class="reset startBtn">Reset</button>
   </header>
-  <h1>This is a Banner</h1>
-  <div class="gameSection">
+  <h1>Welcome to Sorry! Board Game</h1>
+    <div id="startgame" class="animated fadeInUpBig">
+      Welcome to a beginner version of Sorry! <a href="#">Here</a> are the rules to play!
+      <form>
+        First Player name:<br>
+        <input type="text" name="player1Name" placeholder="Player1">
+       <br>
+        Second Player name:<br>
+        <input type="text" name="player2Name" placeholder="Player2">
+        <br><br>
+
+      <input type="submit" class="startBtn" text="Lets Play!">
+      </form>
+  </div>
+  <div class="gameSection animated rotateIn">
     <div class="flex-container">
       <div class="row row1">
         <div class="flex-box cell" id="cell1">
@@ -67,6 +87,5 @@
       </div>
     </div>
   </div>
-    <script src="script.js"></script>
 </body>
 </html>

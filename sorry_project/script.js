@@ -13,27 +13,13 @@ $(document).ready(() => {
   //   movePiece(){};
 
   // }
-    let setBoard;
+    // let setBoard;
   // class gameBoard {
   //   constructor() {
 
   //   }
 
   // }
-
-
-
-
-
-
-  let redPiece = $('.redPiece')
-
-
-
-
-  let bluePiece = $('.bluePiece')
-
-
 
 
     // let player1 = new Player(1,'red', clickMainPiece1) ;
@@ -43,15 +29,27 @@ $(document).ready(() => {
 
 
 
+  $('.startBtn').click(() => {
+    console.log('Game starts!');
+    event.preventDefault()
+    $('h1').text('Roll the Dice to begin!');
+    $('.logo').addClass('animated infinite tada')
+    $('#startgame').addClass('zoomOutDown')
+    $('audio').attr('src', 'Audio/music2.mp3')
+    $('.gameSection').css('display', 'flex');
+
+  });
+
+  let redPiece = $('.redPiece')
+  let bluePiece = $('.bluePiece')
+
+  const cell = $('.cell');
+
+  console.log(cell);
+  let setBoard = Array.from(Array(24).keys(cell));
+  console.log(setBoard[23]);
 
 
- const cell = $('.cell');
-
- console.log(cell);
-
-//  for(var id in cell) {
-//   console.log(cell.keys(id));
-// }
  // why is this not console logging?
 
   // function createBoard(){
@@ -60,47 +58,45 @@ $(document).ready(() => {
 
   let redPosition = 15;
   let bluePosition = 15;
-  let counter = 0;
+  let counter = 2;
 
   let turns = "red";
 
+
   function movePiece(clickMainPiece) {
-    console.log('this has been clicked');
-    console.log(counter)
 
     if (turns == 'red') {
       // console.log(turns)
       redPosition += 11.35;
       $('.redPiece').css('left',`${redPosition}vh`);
-       $('.bluePiece').click(movePiece);
+      changeTurns();
       } else {
       // console.log(turns)
       bluePosition += 11.35;
       $('.bluePiece').css('right',`${bluePosition}vh`);
-
-      $('.redPiece').click(movePiece)
-      console.log(window.positon)
-      // turns = "red";
-      // return turns;
+      turns = "red";
+      return turns;
+      changeTurns();
     }
   }
 
   function changeTurns() {
 
-    if(turns == 'red') {
+    if(counter % 2 === 0) {
       $('.bluePiece').off('click');
-      $('.redPiece').click(movePiece);
       $('h1').text('Player 1 Turn');
-      counter ++;
       turns = "blue";
+      $('.redPiece').click(movePiece);
+      counter ++;
 
     }
     else {
       $('.redPiece').off('click');
-      $('.bluePiece').click(movePiece);
+      turns = "red";
       $('h1').text('Player 2 Turn');
+      $('.bluePiece').click(movePiece);
+
       counter++;
-      turns = "red"
 
     }
   }
@@ -108,6 +104,7 @@ $(document).ready(() => {
 
 
   let clickDice = $('.dice').click(rollDice)
+
   function rollDice() {
     //create an object of a Dice
     var dice = {
@@ -120,53 +117,59 @@ $(document).ready(() => {
         return randomNumber;
       }
      }
-     let value = dice.roll();
+    let value = dice.roll();
 
     if(value === 1) {
       $(".dice > img").attr("src","Images/Die_1.png");
+      movePiece();
     }
     if(value === 2) {
       $(".dice > img").attr("src","Images/Die_2.png");
+      movePiece();
     }
     if(value === 3) {
       $(".dice > img").attr("src","Images/Die_3.png");
+      movePiece();
     }
     if(value === 4) {
       $(".dice > img").attr("src","Images/Die_4.png");
+      movePiece();
     }
     if(value === 5) {
       $(".dice > img").attr("src","Images/Die_5.png");
+      movePiece();
     }
     if(value === 6) {
       $(".dice > img").attr("src","Images/Die_6.png");
+      $('h1').text('You Rolled a Six. Roll Again!');
       rollSix();
     }
-    changeTurns();
+
     return value;
   }
 
   function rollSix() {
 
-    let clickMainPiece1 = $('#mainPiece1').click(function() {
-        console.log('this has been clicked');
-        $('#mainPiece1').css('display','none');
-        $('.redPiece').css('visibility', 'visible');
-        changeTurns();
-    });
+    if(turns == 'red') {
+      let clickMainPiece1 = $('#mainPiece1').click(function() {
+          console.log('this has been clicked');
+          $('#mainPiece1').css('display','none');
+          $('.redPiece').css('visibility', 'visible');
+          rollDice();
+          // changeTurns();
+      });
+    }
 
-    let clickMainPiece2 = $('#mainPiece2').click(function() {
-        console.log('this has been clicked');
-        $('#mainPiece2').css('display','none');
-        $('.bluePiece').css('visibility', 'visible');
-        changeTurns();
-    });
+    if(turns == 'blue') {
+      let clickMainPiece2 = $('#mainPiece2').click(function() {
+          console.log('this has been clicked');
+          $('#mainPiece2').css('display','none');
+          $('.bluePiece').css('visibility', 'visible');
+          rollDice();
+          // changeTurns();
+      });
+    }
   };
-
-  $('.bluePiece').click(movePiece)
-  $('.redPiece').click(movePiece);
-  // console.log(rollDice())
-
-
 
 //JQUERY ender
 });
