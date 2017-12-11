@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous|Sigmar+One" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
@@ -22,10 +22,10 @@
       Welcome to a beginner version of Sorry! <a href="#">Here</a> are the rules to play!
       <form>
         First Player name:<br>
-        <input type="text" name="player1Name" placeholder="Player1">
+        <input type="text" id="player1Name" placeholder="Player1" required>
        <br>
         Second Player name:<br>
-        <input type="text" name="player2Name" placeholder="Player2">
+        <input type="text" id="player2Name" placeholder="Player2" required>
         <br><br>
 
       <input type="submit" class="startBtn" text="Lets Play!">
@@ -34,24 +34,45 @@
   <div class="gameSection animated rotateIn">
     <div class="flex-container">
       <div class="row row1">
-        <div class="flex-box cell" id="cell1">
+        <div class="flex-box cell cell1" id="cell1">
           <div class="piece redPiece"></div>
         </div>
-        <div class="flex-box cell" id="cell2">2</div>
-        <div class="flex-box cell" id="cell3">3</div>
-        <div class="flex-box cell" id="cell4">4</div>
-        <div class="flex-box cell" id="cell5">5</div>
-        <div class="flex-box cell" id="cell6">6</div>
-        <div class="flex-box cell" id="cell7">7</div>
-        <div class="flex-box cell" id="cell8">8</div>
-        <div class="flex-box cell" id="cell9">9</div>
-        <div class="flex-box cell" id="cell10">10</div>
+        <div class="flex-box cell" id="cell2">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell3">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell4">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell5">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell6">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell7">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell8">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell9">
+          <div class="piece redPiece"></div>
+        </div>
+        <div class="flex-box cell" id="cell10">
+          <div class="piece redPiece"></div>
+        </div>
       </div>
       <div class="column">
           <div class="row row3">
-          <div class="flex-box cell" id="cell24">24
+          <div class="flex-box cell" id="cell24">
+            <div class="piece redPiece"></div>
           </div>
-          <div class="flex-box cell" id="cell23">23</div>
+          <div class="flex-box cell" id="cell23">
+            <div class="piece redPiece"></div>
+          </div>
         </div>
         <div class="circle">
           <div class="flex-circle small" id='circleOne'>
@@ -65,24 +86,54 @@
           </div>
         </div>
                 <div class="row row2">
-          <div class="flex-box cell" id="cell11">11</div>
-          <div class="flex-box cell" id="cell12">12
-
+          <div class="flex-box cell" id="cell11">
+            <div class="piece redPiece"></div>
+          </div>
+          <div class="flex-box cell" id="cell12">
+            <div class="piece redPiece"></div>
           </div>
         </div>
       </div>
       <div class="row row4">
-        <div class="flex-box cell" id="cell22">22</div>
-        <div class="flex-box cell" id="cell21">21</div>
-        <div class="flex-box cell" id="cell20">20</div>
-        <div class="flex-box cell" id="cell19">19</div>
-        <div class="flex-box cell" id="cell18">18</div>
-        <div class="flex-box cell" id="cell17">17</div>
-        <div class="flex-box cell" id="cell16">16</div>
-        <div class="flex-box cell" id="cell15">25</div>
-        <div class="flex-box cell" id="cell14">14</div>
+        <div class="flex-box cell" id="cell22">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell21">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell20">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell19">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell18">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell17">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell16">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell15">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
+        <div class="flex-box cell" id="cell14">
+          <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
+        </div>
         <div class="flex-box cell" id="cell13">
           <div class="piece bluePiece"></div>
+          <!-- <div class="piece redPiece"></div> -->
         </div>
       </div>
     </div>

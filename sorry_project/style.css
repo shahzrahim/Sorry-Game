@@ -1,8 +1,9 @@
 body {
   text-align: center;
   background-color: #D1DF00;
-  color: #3A30BB;
-  font-family: 'Open Sans', sans-serif;
+  color: #8A30BB;
+  font-family: 'Righteous';
+  /*font-family: 'Sigmar One' ;*/
 }
 
 header {
@@ -97,7 +98,7 @@ button {
 .row4 .flex-box{
   margin: 0 auto;
   display: flex;
-  flex-direction: row-reverse;
+  flex-flow: row-reverse nowrap;
   background-color: #1594FD;
 }
 
@@ -234,4 +235,3 @@ button {
     justify-content: center;
     background-color: #E27000;
 }
-
