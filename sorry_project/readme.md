@@ -116,13 +116,15 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | GameBoard | H | 3hrs| 12hrs | 6hrs |
 | GameBoard Logic | H | 10hrs| 48hrs | 24hrs |
-| Starting Box Logic| M | 2hrs| 1hrs | hrs |
-| Ending Box Logic| M | 1/2hrs| 1/2hrs | hrs |
-| Dice Animations | M | 10hrs| 2hrs | hrs |
+| Starting Box Logic| M | 2hrs| 1hrs | 1hrs |
+| Ending Box Logic| M | 1/2hrs| 1/2hrs | 1/2hrs |
+| Dice Animations | M | 10hrs| 2hrs | 2hrs |
 | Cutting logic | L | 3hrs| 0hrs | 0hrs |
-| Add Pieces | L | 3hrs| hrs | hrs |
-| Add Players| RL | 3hrs| hrs | hrs |
+| Add Pieces | L | 3hrs| 0hrs | 0hrs |
+| Add Players| RL | 3hrs| 0hrs | 0hrs |
 
+#Total Time
+52 1/2 Hours
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
