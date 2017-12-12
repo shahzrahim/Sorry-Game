@@ -100,13 +100,13 @@ class Cell {
   }
 }
 let cells = []
-cell.each( function(i,d) {
-  cells.push(new Cell(i,d))
-})
+// cell.each( function(i,d) {
+//   cells.push(new Cell(i,d))
+// })
 
-// for (var i = 0; i < newCell.length; i++) {
-//   cells.push(new Cell (newCell[i]));
-// };
+for (var i = 0; i < newCell.length; i++) {
+  cells.push(new Cell (i, newCell[i]));
+};
 
 //$(cells[0]).html("new text")
 // console.log(cell);
@@ -172,11 +172,8 @@ console.log(cells);
     return value;
   }
 
-    // redPosition = 0;
-    // bluePosition = 0;
-
     let redCurrent = 0;
-    let blueCurrent = 23;
+    let blueCurrent = 12;
 
     function movePiece() {
     checkWin();
@@ -204,7 +201,7 @@ console.log(cells);
 
             if (counter >= 4 && !isHigher('blue')) {
                 cells[blueCurrent].hidePiece('blue');
-                blueCurrent -= diceVal
+                blueCurrent += diceVal
                 cells[blueCurrent].showPiece('blue');
                 console.log(cells[blueCurrent].occupied)
                 changeTurns();
@@ -220,7 +217,7 @@ console.log(cells);
       alert('You rolled too high! Wait till next turn');
       return true;
     }
-    if ((blueCurrent + diceVal) < 14) {
+    if ((blueCurrent + diceVal) > 21) {
       alert('You rolled too high! Wait till next turn');
       return true;
     }
@@ -232,7 +229,7 @@ console.log(cells);
         console.log(turns);
         $('.bluePiece').off('click');
         turns = "blue";
-        $('h1').text(`${value1.val()}'s Turn`);
+        $('h1').text(`${value1.val()}'s Turn. ${value2.val()} is next.`);
 
 
         // $('.redPiece').click(movePiece);
@@ -242,7 +239,7 @@ console.log(cells);
         console.log(turns);
         $('.redPiece').off('click');
         turns = "red";
-        $('h1').text(`${value2.val()}'s Turn`);
+        $('h1').text(`${value2.val()}'s Turn. ${value1.val()} is next.`);
 
         // $('.bluePiece').click(movePiece);
         counter++;
@@ -256,7 +253,7 @@ console.log(cells);
       $('#startgame').removeClass('zoomOutDown').addClass('zoomIn');
       $('#startgame').text(`${value1.val()} wins!`)
     }
-    if(cells[14].isOccupied()) {
+    if(cells[21].isOccupied()) {
       $('.gameSection').css('display', 'none');
       $('#startgame').removeClass('zoomOutDown').addClass('zoomIn');
       $('#startgame').text(`${value2.val()} wins!`)
