@@ -1,35 +1,15 @@
+  //
+  // let arr = [1,2,3,4,5];
+  // arr.reverse()
+  // console.log(arr);
 $(document).ready(() => {
 
-  // class Player {
-  //   constructor(player, color, clickMainPiece, currentPlayer) {
-  //     this.player = player
-  //     this.color = color
-  //     this.clickMainPiece = clickMainPiece
-  //     this.currentPlayer = false;
-  //   }
-
-  //   changeTurns(){};
-  //   rollDice() {};
-  //   movePiece(){};
-
-  // }
-    // let setBoard;
-  // class gameBoard {
-  //   constructor() {
-
-  //   }
-
-  // }
-
-
-    // let player1 = new Player(1,'red', clickMainPiece1) ;
-    // let player2 = new Player(2,'blue', clickMainPiece2);
-    // console.log(player1)
-    // console.log(player2)
-
+//values from forms
     const value1 = $('#player1Name');
     const value2 = $('#player2Name');
 
+
+// Starts game after landing page gets button
   $('.startBtn').click(() => {
     event.preventDefault()
     console.log('Game starts!');
@@ -38,7 +18,6 @@ $(document).ready(() => {
     $('#startgame').addClass('zoomOutDown')
     $('audio').attr('src', 'Audio/music2.mp3')
     $('.gameSection').css('display', 'flex');
-    game();
 
   });
 
@@ -47,12 +26,48 @@ $(document).ready(() => {
 
   // let playerOne = $('#player1Name').val()
   // (console.log(playerOne.val()));
-function game() {
+
+
   let redPiece = $('.redPiece')
   let bluePiece = $('.bluePiece')
 
+//sets an array of all the flexboxes
   const cell = $('.cell');
 
+
+  var part0 = cell.slice(0,10);
+  var part1 = cell.slice(10, 12);
+  var part2 = cell.slice(12, 14);
+  var part3 = cell.slice(14);
+
+
+//rearranges cells so they are actually board format
+function adjCell(array, array2, array3, array4) {
+  let ans = [];
+
+
+
+  for (var i = 0; i < array.length; i++) {
+    ans.push(array[i]);
+  }
+
+  for (var h = 0; h < array2.length; h++) {
+    ans.push(array2[h]);
+  }
+
+  for (var j = array3.length - 1; j >= 0; j--) {
+    ans.push(array3[j]);
+  }
+
+  for (var k = array4.length -1; k >= 0; k--) {
+    ans.push(array4[k]);
+  }
+
+  return ans;
+};
+
+const newCell = adjCell(part0, part2, part3, part1);
+console.log(newCell);
 
 class Cell {
   constructor(key,value){
@@ -74,7 +89,6 @@ class Cell {
     }
   }
   showPiece() {
-    // $('.redPiece').css('visibility', 'visible');
     if('red') {
     $(this.value).children('.redPiece').css('visibility', 'visible');
     this.occupied = true;
@@ -89,7 +103,13 @@ let cells = []
 cell.each( function(i,d) {
   cells.push(new Cell(i,d))
 })
+
+// for (var i = 0; i < newCell.length; i++) {
+//   cells.push(new Cell (newCell[i]));
+// };
+
 //$(cells[0]).html("new text")
+// console.log(cell);
 console.log(cells);
 
 
@@ -264,6 +284,33 @@ console.log(cells);
   //     });
   //   }
   // };
-}
 //JQUERY ender
 });
+
+
+  // class Player {
+  //   constructor(player, color, clickMainPiece, currentPlayer) {
+  //     this.player = player
+  //     this.color = color
+  //     this.clickMainPiece = clickMainPiece
+  //     this.currentPlayer = false;
+  //   }
+
+  //   changeTurns(){};
+  //   rollDice() {};
+  //   movePiece(){};
+
+  // }
+    // let setBoard;
+  // class gameBoard {
+  //   constructor() {
+
+  //   }
+
+  // }
+
+
+    // let player1 = new Player(1,'red', clickMainPiece1) ;
+    // let player2 = new Player(2,'blue', clickMainPiece2);
+    // console.log(player1)
+    // console.log(player2)
