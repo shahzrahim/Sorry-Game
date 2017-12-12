@@ -12,10 +12,10 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |---|---| ---|
 |Day 1: Wed| Game Idea| Yes
 |Day 2: Thur| Wireframes and Priority Matrix| Yes
-|Day 3: Fri| Pseudocode\actual code|
-|Day 4: Sat| Basic Clickable Model |
-|Day 5: Sun| Working Prototype |
-|Day 6: Mon| Game Completed / Slides |
+|Day 3: Fri| Pseudocode\actual code|Yes
+|Day 4: Sat| Basic Clickable Model |Yes
+|Day 5: Sun| Working Prototype |Yes
+|Day 6: Mon| Game Completed / Slides |Yes
 |Day 7: Tue| Project Presentations |
 
 ## Project Description
@@ -78,19 +78,19 @@ http://res.cloudinary.com/shazrahim94/image/upload/v1512673011/IMG_5611_eth0fz.j
 ## Game Components
 
 ### Landing Page
-What will a player see when they start your game?
+There will be a Window in the middle of the screen with directions for how to play the game, and a form to gather Player names.
 
 ### Game Initialization
-What will a player see when the game is started? 
+The Board will flip into place and you will see an empty board with two pieces in the middle. One in a blue circle and one in a red circle.
 
 ### Playing The Game
-What will be the flow of the game, what will the user be expeted to do and what will the user expect from the gam
+The players will take turns clicking on the dice in the middle, and their piece will move according to the the value on the dice.
 
 ### Winning The Game
-What does it look like when the game ends, what determines winning or losing?
+Once a piece has reached the opposing side of the board, the game board will dissapear and a window will pop up declarding the winner.
 
 ### Game Reset
-How will the user restart the game once it has been completed.
+The game will reboot the the game initaliziation page after clicking the reset button.
 
 ## Functional Components
 
