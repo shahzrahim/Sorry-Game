@@ -123,7 +123,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Add Pieces | L | 3hrs| 0hrs | 0hrs |
 | Add Players| RL | 3hrs| 0hrs | 0hrs |
 
-#Total Time
+####Total Time
 52 1/2 Hours
 
 ## Helper Functions
