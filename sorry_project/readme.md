@@ -2,6 +2,9 @@
 
 This is a begginer version for Sorry! Board game. The objective is to be the first player to get all their colored pieces from their start space, around the board to their "home" space. The pieces are normally moved in a clockwise direction. Movement of nubbins are directed by the rolling of a dice.
 
+A link to Presentation.
+https://docs.google.com/presentation/d/11a2r43smTqYkPN_olA3okwUYzFZOmw-zLLgVLb3PX0s/edit?usp=sharing
+
 ## Project Schedule
 
 This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
