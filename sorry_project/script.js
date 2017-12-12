@@ -31,14 +31,14 @@ $(document).ready(() => {
     const value2 = $('#player2Name');
 
   $('.startBtn').click(() => {
-    console.log('Game starts!');
     event.preventDefault()
+    console.log('Game starts!');
     $('h1').text(`Roll the Dice to begin! \n${value1.val()}'s Turn`);
     $('.logo').addClass('animated infinite tada')
     $('#startgame').addClass('zoomOutDown')
     $('audio').attr('src', 'Audio/music2.mp3')
     $('.gameSection').css('display', 'flex');
-
+    game();
 
   });
 
@@ -47,45 +47,41 @@ $(document).ready(() => {
 
   // let playerOne = $('#player1Name').val()
   // (console.log(playerOne.val()));
-
+function game() {
   let redPiece = $('.redPiece')
   let bluePiece = $('.bluePiece')
 
   const cell = $('.cell');
 
-//   console.log(cell);
-//   let setBoard = Array.from(Array(24).keys(cell));
-//
-//   $.each(cell, function(key, element) {
-//     element = false;
-//     console.log('key: ' + key + '\n' + 'value: ' + element);
-// });
-// let cell = $('.cell' )
 
 class Cell {
   constructor(key,value){
     this.key = key;
-    this.value = value
-    this.occupied = false
+    this.value = value;
+    this.occupied = false;
   }
   isOccupied() {
-    return this.occupied
+    return this.occupied;
   }
   hidePiece() {
     if('red') {
     $(this.value).children('.redPiece').css('visibility', 'hidden');
+    this.occupied = false;
     }
     if('blue'){
     $(this.value).children('.bluePiece').css('visibility', 'hidden');
+    this.occupied = false;
     }
   }
   showPiece() {
     // $('.redPiece').css('visibility', 'visible');
     if('red') {
     $(this.value).children('.redPiece').css('visibility', 'visible');
+    this.occupied = true;
     }
     if('blue') {
     $(this.value).children('.bluePiece').css('visibility', 'visible');
+    this.occupied = true;
     }
   }
 }
@@ -97,13 +93,6 @@ cell.each( function(i,d) {
 console.log(cells);
 
 
-
-
- // why is this not console logging?
-
-  // function createBoard(){
-  //   setBoard = Array.from(Array(24).keys());
-  // }
 
   let counter = 2;
 
@@ -170,37 +159,51 @@ console.log(cells);
     let blueCurrent = 23;
 
     function movePiece() {
-
+    checkWin();
 
 
       if (turns == 'red') {
         $('#mainPiece1').css('visibility','hidden');
-        // $('.redPiece').css('visibility', 'visible');
         cells[redCurrent].showPiece('red');
 
-          if (counter >= 3) {
+          if (counter >= 3 && !isHigher('red')) {
+
             cells[redCurrent].hidePiece('red');
             redCurrent += diceVal
             cells[redCurrent].showPiece('red');
-            $('.redPiece').click(changeTurns());
+            console.log(cells[redCurrent].occupied)
+            changeTurns();
+            // $('.redPiece').click(changeTurns());
           } else {
           changeTurns();
         }
+
       } else {
           $('#mainPiece2').css('visibility','hidden');
-          // $('.bluePiece').css('visibility', 'visible');
           cells[blueCurrent].showPiece('blue');
 
-            if (counter >= 4) {
-              cells[blueCurrent].hidePiece('blue');
-              blueCurrent -= diceVal
-              cells[blueCurrent].showPiece('blue');
-              $('.bluePiece').click(changeTurns());
+            if (counter >= 4 && !isHigher('blue')) {
+                cells[blueCurrent].hidePiece('blue');
+                blueCurrent -= diceVal
+                cells[blueCurrent].showPiece('blue');
+                console.log(cells[blueCurrent].occupied)
+                changeTurns();
+              // $('.bluePiece').click(changeTurns());
             } else {
             changeTurns();
           }
       }
 
+  }
+  function isHigher(turn) {
+    if ((redCurrent + diceVal) > 9) {
+      alert('You rolled too high! Wait till next turn');
+      return true;
+    }
+    if ((blueCurrent + diceVal) < 14) {
+      alert('You rolled too high! Wait till next turn');
+      return true;
+    }
   }
 
     function changeTurns() {
@@ -208,9 +211,11 @@ console.log(cells);
       if(counter % 2 == 0) {
         console.log(turns);
         $('.bluePiece').off('click');
-        $('h1').text(`${value1.val()}'s Turn`);
         turns = "blue";
-        $('.redPiece').click(movePiece);
+        $('h1').text(`${value1.val()}'s Turn`);
+
+
+        // $('.redPiece').click(movePiece);
         counter ++;
       }
       else {
@@ -218,11 +223,25 @@ console.log(cells);
         $('.redPiece').off('click');
         turns = "red";
         $('h1').text(`${value2.val()}'s Turn`);
-        $('.bluePiece').click(movePiece);
+
+        // $('.bluePiece').click(movePiece);
         counter++;
 
       }
     }
+
+  function checkWin() {
+    if(cells[9].isOccupied()) {
+      $('.gameSection').css('display', 'none');
+      $('#startgame').removeClass('zoomOutDown').addClass('zoomIn');
+      $('#startgame').text(`${value1.val()} wins!`)
+    }
+    if(cells[14].isOccupied()) {
+      $('.gameSection').css('display', 'none');
+      $('#startgame').removeClass('zoomOutDown').addClass('zoomIn');
+      $('#startgame').text(`${value2.val()} wins!`)
+    }
+  }
   // function rollSix() {
   //
   //   if(turns == 'red') {
@@ -245,38 +264,6 @@ console.log(cells);
   //     });
   //   }
   // };
-
+}
 //JQUERY ender
 });
-
-
-
-
-
-// function turn() {};
-
-// function endTurn() {};
-
-
-
-//Pseudo Code
-//a function that starts the game
-
-//A class that contains entire game
-//A method that builds the board game based on cell ID
-//A method that moves pieces Check
-//A method that rolls dice. Check
-//A method that ends turn.
-//A method to change turns between both players. Check
-
-      // function() {
-      //     let sI = setInterval(function() {
-      //     let random = Math.floor(Math.random() * this.sides) + 1;
-      //     console.log(random)
-      //     // counter += 1
-      //     // if(counter == 3) {
-      //     //   clearInterval(sI); return currentRole(random)}
-      //     // },250)
-      //     // return sI;
-      //     }
-      //   }
